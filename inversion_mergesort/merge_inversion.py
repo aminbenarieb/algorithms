@@ -5,7 +5,6 @@ def arr_from_file(filepath):
 
 
 def split_inversion(b,c):
-	# print(str(b) + " m " + str(c))
 	n, m = len(b), len(c)
 	inv, i, j = 0,0,0
 	d = []
@@ -16,9 +15,11 @@ def split_inversion(b,c):
 		elif b[i] > c[j]:
 			d.append(c[j])
 			j += 1
-			# ******
-			inv += (n+m)/2 - i 
-			# ******
+			# as B and C already sorted,
+			# if b[i] is greater c[j],
+			# so all b[i]..b[n] elements are greater c[j].
+			# total count of them: n-i
+			inv += n-i
 		else:
 			d.append(b[i])
 			d.append(c[j])
@@ -48,7 +49,7 @@ def inversion(a):
 	return a, x + y + z
 
 
-a = [6, 5, 4, 3, 2, 1]
+# a = [6, 5, 4, 3, 2, 1]
 
 
 print("\n")
